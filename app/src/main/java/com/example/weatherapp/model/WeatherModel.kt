@@ -13,6 +13,6 @@ data class WeatherModel(
     val sys: Sys,
     val timezone: Int,
     val visibility: Int,
-    val weather: Weather,
+    val weather: List<Weather>,
     val wind: Wind
 )
