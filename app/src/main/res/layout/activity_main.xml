@@ -2,14 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/daytime_bg"
     android:orientation="vertical"
     android:padding="25dp"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,14 +21,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/addressText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Location"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
 
             <TextView
                 android:id="@+id/country"
@@ -42,7 +46,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:orientation="vertical">
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addressContainer">
 
             <TextView
                 android:id="@+id/status"
@@ -65,42 +73,50 @@
 
             </TextView>
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="center"-->
-<!--                android:orientation="horizontal">-->
+        </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/temp_min"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Min temp">-->
+        <LinearLayout
+            android:id="@+id/forecast_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/overview">
 
-<!--                </TextView>-->
-
-<!--                <Space-->
-<!--                    android:layout_width="50dp"-->
-<!--                    android:layout_height="wrap_content" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/temp_max"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Max temp">-->
-
-<!--                </TextView>-->
-
-<!--            </LinearLayout>-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_forecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/askForClothingAdvice"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:backgroundTint="#3CF1EBF1"
+            android:clickable="true"
+            android:gravity="center"
+            android:stateListAnimator="@android:anim/fade_out"
+            android:text="Do you want clothing advice?"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/detailsContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/forecast_container" />
         <LinearLayout
             android:id="@+id/detailsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#3CF1EBF1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,7 +128,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -151,7 +166,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -188,7 +202,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -232,7 +245,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -241,7 +253,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/pressure"
-                        android:tint="#FFFFFF" />
+                        app:tint="#FFFFFF" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -270,7 +282,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -279,7 +290,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/humidity"
-                        android:tint="#FFFFFF" />
+                        app:tint="#FFFFFF" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -307,7 +318,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -325,11 +335,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Created By"
+                        android:text="Rain"
                         android:textSize="12dp" />
 
                     <TextView
-                        android:id="@+id/about"
+                        android:id="@+id/rain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Alp"
@@ -338,6 +348,6 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

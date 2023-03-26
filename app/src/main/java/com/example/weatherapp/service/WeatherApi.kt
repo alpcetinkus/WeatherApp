@@ -1,11 +1,28 @@
 package com.example.weatherapp.service
 
+import com.example.weatherapp.model.Forecast
 import com.example.weatherapp.model.WeatherModel
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface WeatherApi {
-//https://api.openweathermap.org/data/2.5/weather?q=marmaris&APPID=75faa8083541a6689f4998dab66234a4
-    @GET("data/2.5/weather?q=maltepe&APPID=75faa8083541a6689f4998dab66234a4")
-    fun getData(): Call<WeatherModel>
+
+    // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+    @GET("data/2.5/weather")
+    fun getData(
+        @Query("lat") latitude: Double,
+        @Query("lon") longitude: Double,
+        @Query("appid") apiKey: String,
+        @Query("units") units: String
+    ): Call<WeatherModel>
+
+    // https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+    @GET("data/2.5/forecast")
+    fun getForecast(
+        @Query("lat") latitude: Double,
+        @Query("lon") longitude: Double,
+        @Query("appid") apiKey: String,
+        @Query("units") units: String
+    ): Call<Forecast>
 }
