@@ -8,5 +8,8 @@ A Kotlin based android mobile Weather Application showing all the weather detail
 - [View Binding](https://developer.android.com/topic/libraries/view-binding)
 
 
+# Demo
+
+https://user-images.githubusercontent.com/75915865/228883429-2c2a57ca-cba8-43fd-b2c0-8b4c0c51c813.mp4
 
 
