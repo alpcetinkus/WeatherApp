@@ -6,6 +6,8 @@ A Kotlin based android mobile Weather Application showing all the weather detail
 
 - [Retrofit](https://square.github.io/retrofit)
 - [View Binding](https://developer.android.com/topic/libraries/view-binding)
+- [Glide](https://github.com/bumptech/glide)
+- [RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview)
 
 
 # Demo
